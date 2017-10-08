@@ -46,7 +46,7 @@ describes the actions of the numeric keypads speakup review keys.
 You can at any time silence the current stream of speech being output with the 
 keypads enter key. 
 
-To toggle the speach on and off hold down the numeric keypads *0* key and press 
+To toggle the speech on and off hold down the numeric keypads *0* key and press 
 the numeric keypads *Enter* key.
 
 
