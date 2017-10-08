@@ -108,8 +108,8 @@ To remove the last login line. E.g.
 *Last login: Sun Oct 2017 on tty2*
 
 ```bash
-    cd /etc/pam.d/
-    sudo nano login
+    $ cd /etc/pam.d/
+    $ sudo nano login
 ```
 ...then find...
 ```bash
