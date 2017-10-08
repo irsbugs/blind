@@ -18,11 +18,11 @@ Install alsa-utils and then reboot for it to be implemented...
     $ reboot
 ```
 
-Test the sound. speaker-test will just output noise.
+Test the sound. *speaker-test* will just output noise.
 ```bash
     $ speaker-test
 ```
-For more interesting test of a 1KHz sine wave to both front speakers...
+For a more interesting test of a 1KHz sine wave to both front speakers...
 ```bash
     $ speaker-test -Dplug:front -c 2 -t sine f 1000
 ```
