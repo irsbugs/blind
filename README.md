@@ -134,6 +134,113 @@ If you want to modify line *Welcome to Ubuntu 17.04
 ```
 ...then the message will be *Welcome to Ubuntu 17.04*
 
+## Adding automatic mounting of USB devices
+Ubuntu Server distribution does not include automatic mounting and dismounting of disk drives. To provide this for a USB drive device, then a lightweight solution is to install *usbmount* as follows...
+```bash
+    $ sudo apt install usbmount
+    $ (cat /proc/filesystems | awk '{print $NF}' | sed '/^$/d'; ls -1 /lib/modules/$(uname -r)/kernel/fs) | sort -u
+
+```
+See what file system are available...
+```bash
+    $ (cat /proc/filesystems | awk '{print $NF}' | sed '/^$/d'; ls -1 /lib/modules/$(uname -r)/kernel/fs) | sort -u
+    9p
+    adfs
+    affs
+    afs
+    aufs
+    autofs
+    autofs4
+    bdev
+    befs
+    bfs
+    binfmt_misc.ko
+    bpf
+    btrfs
+    cachefiles
+    ceph
+    cgroup
+    cifs
+    coda
+    configfs
+    cpuset
+    cramfs
+    debugfs
+    devpts
+    devtmpfs
+    dlm
+    ecryptfs
+    efs
+    exofs
+    ext2
+    ext3
+    ext4
+    f2fs
+    fat
+    freevxfs
+    fscache
+    fuse
+    fuseblk
+    fusectl
+    gfs2
+    hfs
+    hfsplus
+    hpfs
+    hugetlbfs
+    iso9660
+    isofs
+    jffs2
+    jfs
+    lockd
+    minix
+    mqueue
+    ncpfs
+    nfs
+    nfs_common
+    nfsd
+    nilfs2
+    nls
+    ntfs
+    ocfs2
+    omfs
+    overlayfs
+    pipefs
+    proc
+    pstore
+    qnx4
+    qnx6
+    quota
+    ramfs
+    reiserfs
+    romfs
+    rootfs
+    securityfs
+    sockfs
+    squashfs
+    sysfs
+    sysv
+    tmpfs
+    tracefs
+    ubifs
+    udf
+    ufs
+    vfat
+    xfs
+```
+
+When you plug in a USB drive the console message will be like this...
+```bash
+    [   428.0334691] sd 4:0:0:0: [sdb] No Caching monde page found
+    [   428.0335121] sd 4:0:0:0: [sdb] Assuming drive cache: write through
+```
+```bash
+    FILESYSTEMS="vfat ext2 ext3 ext4 pfsplus" 
+```
+add some more
+```bash
+    FILESYSTEMS="vfat ext2 ext3 ext4 pfsplus fat ntfs " 
+```
+
 ## Adding alternative editors. For example joe
 Ubuntu includes nano and vi text editors. To add the editor *joe*...
 ```bash
