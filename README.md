@@ -227,6 +227,10 @@ See what file system are available...
     vfat
     xfs
 ```
+or another way of finding the supported file systems
+```bash
+    $ ls /lib/modules/$(uname -r)/kernel/fs/*/*ko
+```
 
 When you plug in a USB drive the console message will be like this...
 ```bash
